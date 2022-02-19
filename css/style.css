@@ -34,7 +34,7 @@ body
 {
     background: #F8F8F8;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     padding:10px 0px 10px;
     box-sizing:border-box;
     margin-top:10px;
@@ -42,17 +42,19 @@ body
 .table-content-header
 {
     display: flex;
-    width:66%;
     padding:10px;
+    justify-content: center;
+    width:40%;
 }
 .table-content-header h3
 {
    font-size:15px;
    letter-spacing: 2px;
+  
 }
 .table-count
 {
-    background-color: chartreuse;
+    background-color: #82a70c;
     color: #ffff;
     border-radius: 42%;
     font-size: 16px;
@@ -63,16 +65,62 @@ body
 }
 .button-group
 {
-    background:#51d314 0% 0% no-repeat padding-box;
+    background:#82a70c;
     border-radius: 100px;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
-    padding: 10px;
+    padding-top: 1px;
+    padding-left: 7px;
+    padding-right: 10px;
     color: white;
 }
+
 .button-list
 {
-    margin-top: 12px;
-    
+    margin-top:-28px;  
+    display: flex;
+    justify-content: right;
+    margin-right: 172px;
+}
+.table
+{
+border-collapse: separate;
+margin-top: 10px;
+width: 100%;
+border-spacing:0px 15px;
+}
+td,th
+{
+    padding: 5px;
+    text-align: left;
+}
+
+th
+{
+    background-color: #42515F;
+    color: #F8F8F8;
+    padding: 10px 0px 10px 0px;
+    text-transform: uppercase;
+    font:normal normal medium 180x/24px Roboto;
+}
+td:first-child
+{
+    display: flex;
+    align-items: center;
+}
+td img:first-child
+{
+    margin-right: 10px;
+}
+td img
+{
+    cursor: pointer;
+}
+.dept-label
+{
+    background-color:#e9fea5;
+    border-radius:40%;
+    width:fit-content;
+    padding: 1px 7px;
 }
