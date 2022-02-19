@@ -30,3 +30,49 @@ body
 {
     color: black;
 }
+.table-content
+{
+    background: #F8F8F8;
+    display: flex;
+    justify-content: center;
+    padding:10px 0px 10px;
+    box-sizing:border-box;
+    margin-top:10px;
+}
+.table-content-header
+{
+    display: flex;
+    width:66%;
+    padding:10px;
+}
+.table-content-header h3
+{
+   font-size:15px;
+   letter-spacing: 2px;
+}
+.table-count
+{
+    background-color: chartreuse;
+    color: #ffff;
+    border-radius: 42%;
+    font-size: 16px;
+    width: 26px;
+    display: inline-block;
+    text-align: center;
+    padding-top: 16px;
+}
+.button-group
+{
+    background:#51d314 0% 0% no-repeat padding-box;
+    border-radius: 100px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}
+.button-list
+{
+    margin-top: 12px;
+    
+}
