@@ -1,0 +1,32 @@
+body
+{
+    margin:0px;
+}
+.header
+{
+    
+    display: flex;
+    width: 40%;
+    justify-content: center;
+}
+.logo-content
+{
+    display: flex;
+    justify-content: center;
+}
+.logo-content img
+{
+    width:45px;
+    height: 45px;
+}
+.text-content
+{
+    color: chartreuse;
+    font-family: 'Roboto';
+    margin-left: 10px;
+    font-size:20px;
+}
+.text
+{
+    color: black;
+}
