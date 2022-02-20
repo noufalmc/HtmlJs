@@ -7,40 +7,23 @@ window.addEventListener('DOMContentLoaded',(event)=>{
 const createInnerHtml=()=>
 {
     
-    let Json=createJson()[1];
+    let Json1=createJson();
+    if(Json1.length===0) return;
+    document.querySelector("#table-count").textContent=Json1.length;
     const headerHtml='<thead><th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Action</th></thead>';
-const innertHtml=`${headerHtml}<tr><td><img src="${Json._profilePic}"></td><td>${Json._name}</td><td>${Json._gender}</td><td>
+let innertHtml=`${headerHtml}`;
+    for(const Json of Json1)
+    {
+    innertHtml=`${innertHtml}<tr><td><img src="${Json._profilePic}"></td><td>${Json._name}</td><td>${Json._gender}</td><td>
 <label class="dept-label">${getDept(Json._department)}</label></td><td>${Json._salary}</td><td>${Json._startDate}</td><td>
 <img src="/assets/create-black-18dp.svg" onclick="update(this)" id="${Json._id}">
 <img src="/assets/delete-black-18dp.svg" onclick="remove(this)" id="${Json._id}"></td></tr>`;
-
+    }
 document.querySelector("#table").innerHTML=innertHtml;
 }
 const createJson=()=>
 {
-    let json=[
-        {
-        _name:"Noufal",
-        _gender:"Male",
-        _department:["Hr","IT"],
-        _salary:["20000"],
-        _startDate:['29 oct 2019'],
-        _note:[''],
-        _id:new Date().getTime(),
-        _profilePic:'/assets/Ellipse -1.png'
-    },
-    {
-        _name:"Jamal",
-        _gender:"Male",
-        _department:["Hr"],
-        _salary:["200000"],
-        _startDate:['19 oct 2019'],
-        _note:[''],
-        _id:new Date().getTime(),
-        _profilePic:'/assets/Ellipse -2.png'
-    }
-]
-return json;
+    return localStorage.getItem("EmployeePayroll") ? JSON.parse(localStorage.getItem('EmployeePayroll')):[];
 }
 const getDept=(list)=>
 {
