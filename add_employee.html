@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/style1.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@300,400;500,600;1,100&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
+    <script src='/js/payroll.js'></script>
+</head>
+
+<body>
+    <header class="header-content header">
+        <div class="logo-content">
+            <img src="/assets/logo.png">
+            <div class="text">
+                <span class="text-content">Employee
+                </span>
+                <br>
+                <span class="text-content txt">Payroll</span>
+            </div>
+        </div>
+    </header>
+    <div class="form-section">
+        <form class="form" action="#" onsubmit="save()" onreset="resetForm()">
+            <div>
+                <h1>Employee Payroll Form</h1>
+            </div>
+            <div class="form-content">
+                <label for="name">
+                    Enter Name:
+                </label>
+                <input type="text" class="textbox" name="name" id="name">
+                <error class="error-output"></error>
+            </div>
+            <div class="form-content">
+                <label for="name">
+                    Profile Pic:
+                </label>
+                <label style="display: flex;" class="photo">
+                    <input type="radio" name="profile" class="radio"
+                        value="/assets/Ellipse -1.png">
+                    <img src="/assets/Ellipse -1.png">
+                    <input type="radio" name="profile" class="radio"
+                        value="/assets/Ellipse -2.png">
+                    <img src="/assets/Ellipse -2.png">
+                    <input type="radio" name="profile" class="radio"
+                        value="/assets/Ellipse -8.png">
+                    <img src="/assets/Ellipse -8.png">
+                    <input type="radio" name="profile" class="radio"
+                        value="/assets/Ellipse -9.png">
+                    <img src="/assets/Ellipse -9.png">
+                </label>
+            </div>
+            <div class="form-content">
+                <label for="name">
+                    Gender:
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="M">
+                    Male
+                    <input type="radio" name="gender" value="F">
+                    Female
+                </label>
+            </div>
+            <div class="form-content">
+                <label for="name">
+                    Department:
+                </label>
+                <label>
+                    <input type="checkbox" value="hr" id="department">HR
+                    <input type="checkbox" value="sales" id="department">Sales
+                    <input type="checkbox" value="finance" id="department">Finance
+                    <input type="checkbox" value="engineers" id="department">Engineers
+                    <input type="checkbox" value="other" id="department">Others
+                </label>
+            </div>
+            <div class="form-content">
+                <label for="salary">
+                    Salary:
+                </label>
+                <div style="width: 200%;">
+                    <input name="salary" id="salary" value="300000" value="400000" max="500000" type="range" step="100"
+                        id="salary" style="width: 63%;">
+                    <salary class="salary">400000</salary>
+                    <salary id="salary-result"></salary>
+                </div>
+            </div>
+            <div class="form-content">
+                <label for="salary">
+                    Start Date
+                </label>
+                <label>
+                    <select name="day" id="day">
+                        <option>Day</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                    </select>
+                    <select id="month" name="month">
+                        <option>Month</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <select name="year" id="year">
+                        <option>Year</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                    </select>
+                </label>
+            </div>
+            <div class="form-content">
+                <label for="notes">
+                    Notes:
+                </label>
+                <textarea style="height:100px;width:60%;" id="notes">
+
+                </textarea>
+            </div>
+            <div class="button-parent">
+                <a href="cancle.html" class="button cancelbtn">Cancel</a>
+                <div class="submit-reset">
+                    <button type="submit" class="button submitbtn">Submit</button>
+                    <button type="reset" class="button restbtn">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const name = document.querySelector("#name");
+        const error = document.querySelector('.error-output');
+        name.addEventListener('input', function () {
+
+            if (name.value.length == 0) {
+                error.textContent = '';
+                return;
+            }
+            try {
+                new EmployeePayrollData().name = name.value;
+                error.textContent = '';
+            } catch (e) {
+                error.textContent = e;
+            }
+        })
+        const salary = document.querySelector("#salary");
+        const range = document.querySelector(".salary");
+        salary.addEventListener('input', function () {
+            range.innerText = salary.value;
+        })
+    })
+
+    const save = () => {
+        try {
+            let EmployeePayrollData = createEmployeePayroll();
+            createAndUpdateJson(EmployeePayrollData);
+        } catch (e) {
+            return;
+        }
+    }
+
+    function createAndUpdateJson(data) {
+        let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayroll"));
+        if (employeePayrollList != undefined) {
+            employeePayrollList.push(data);
+        }
+        else {
+            employeePayrollList = [data]
+        }
+
+        localStorage.setItem("EmployeePayroll", JSON.stringify(employeePayrollList));
+        alert(localStorage.getItem("EmployeePayroll"));
+    }
+
+    const createEmployeePayroll = () => {
+
+        let employeePayrollData = new EmployeePayrollData();
+        try {
+            let employeePayroll=JSON.parse(localStorage.getItem('EmployeePayroll'));
+            employeePayrollData.id=employeePayroll.length+1;
+            employeePayrollData.name = getInputValue('#name');
+            employeePayrollData.profilePic = getSelectedvalues('[name=profile]');
+            employeePayrollData.gender = getSelectedvalues('[name=gender]');
+            employeePayrollData.department = getSelectedvalues('[id=department]');
+            employeePayrollData.salary = getInputValue('#salary');
+            employeePayrollData.employeeNotes = getInputValue('#notes');
+            let date = getInputValue('#day') + ' ' +
+                getInputValue('#month') + ' ' + getInputValue('#year');
+            employeePayrollData.startDate = Date.parse(date);
+            alert(employeePayrollData.toString());
+            return employeePayrollData;
+        } catch (e) {
+            alert(e);
+            throw e;
+        }
+
+    }
+
+    const getInputValue = (id) => {
+        let value = document.querySelector(id).value;
+        return value;
+    }
+    const getSelectedvalues = (propertyValue) => {
+        let allItems = document.querySelectorAll(propertyValue);
+        let selectedValues = [];
+        allItems.forEach(item => {
+            if (item.checked) {
+                selectedValues.push(item.value);
+            }
+
+        })
+        return selectedValues;
+    }
+    const resetForm = () => {
+        unsetvalue('#name', '');
+        unsetGroupInput('[name=profile]');
+        unsetGroupInput('[name=gender]');
+        unsetGroupInput('[id=department]');
+        unsetvalue('#salary', '');
+        unsetvalue('#notes', '');
+        unsetvalue('#day', '');
+        unsetvalue('#month', '');
+        unsetvalue('#year', '');
+    }
+    const unsetGroupInput = (value) => {
+        let items = document.querySelectorAll(value);
+        allItems.forEach(item => {
+            item.checked = false
+        })
+    }
+    const unsetvalue = (id, value) => {
+        document.querySelector(id).value = value;
+    }
+</script>
