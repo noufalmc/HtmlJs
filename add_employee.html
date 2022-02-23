@@ -268,9 +268,14 @@
         unsetGroupInput('[id=department]');
         unsetvalue('#salary', '');
         unsetvalue('#notes', '');
-        unsetvalue('#day', '');
-        unsetvalue('#month', '');
-        unsetvalue('#year', '');
+        unsetValueIndex('#day',0);
+        unsetValueIndex('#month',0);
+        unsetValueIndex('#year', 0);
+    }
+    const unsetValueIndex=(id,index)=>
+    {
+        const element=document.querySelector(id);
+        element.selectedIndex=index;
     }
     const unsetGroupInput = (value) => {
         let items = document.querySelectorAll(value);

@@ -84,10 +84,10 @@ window.addEventListener('DOMContentLoaded',(event)=>
         checkForUpdate();
 })
 const checkForUpdate=()=>{
-    employeePayrollObj=localStorage.getItem("EditEmp");
-    isUpdate=editEmployeePayrollJson ? true : false;
+   employeePayrollObj=localStorage.getItem("EditEmp");
+    isUpdate=employeePayrollObj ? true : false;
     if(!isUpdate) return;
-    setForm(JSON.parse(editEmployeePayrollJson));
+    setForm(JSON.parse(employeePayrollObj));
 }
 const setForm=(editEmployeeList)=>
 {
