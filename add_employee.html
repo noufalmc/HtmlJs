@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@300,400;500,600;1,100&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
     <script src='/js/payroll.js'></script>
+    <script src="/js/load.js"></script>
+    <script src="/js/utility.js"></script>
 </head>
 
 <body>
@@ -120,18 +122,18 @@
                     </select>
                     <select id="month" name="month">
                         <option>Month</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
+                        <option value="Jan">Jan</option>
+                        <option value="Feb">Feb</option>
+                        <option value="Mar">Mar</option>
+                        <option value="Apr">Apr</option>
+                        <option value="May">May</option>
+                        <option value="Jun">Jun</option>
+                        <option value="Jul">July</option>
+                        <option value="Aug">Aug</option>
+                        <option value="Sep">Sep</option>
+                        <option value="Oct">Oct</option>
+                        <option value="Nov">Nov</option>
+                        <option value="Dec">Dec</option>
                     </select>
                     <select name="year" id="year">
                         <option>Year</option>
@@ -201,20 +203,22 @@
             let EmployeePayrollData = createEmployeePayroll();
             createAndUpdateJson(EmployeePayrollData);
         } catch (e) {
+             alert(e);
             return;
         }
     }
 
     function createAndUpdateJson(data) {
-        let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayroll"));
-        if (employeePayrollList != undefined) {
-            employeePayrollList.push(data);
+
+        let employeePayroll = JSON.parse(localStorage.getItem("EmployeePayroll"));
+        if (employeePayroll != undefined) {
+            employeePayroll.push(data);
         }
         else {
-            employeePayrollList = [data]
+            employeePayroll = [data]
         }
 
-        localStorage.setItem("EmployeePayroll", JSON.stringify(employeePayrollList));
+        localStorage.setItem("EmployeePayroll", JSON.stringify(employeePayroll));
         alert(localStorage.getItem("EmployeePayroll"));
     }
 
@@ -222,8 +226,8 @@
 
         let employeePayrollData = new EmployeePayrollData();
         try {
-            let employeePayroll=JSON.parse(localStorage.getItem('EmployeePayroll'));
-            employeePayrollData.id=employeePayroll.length+1;
+            
+            employeePayrollData.id=2;
             employeePayrollData.name = getInputValue('#name');
             employeePayrollData.profilePic = getSelectedvalues('[name=profile]');
             employeePayrollData.gender = getSelectedvalues('[name=gender]');
@@ -232,7 +236,7 @@
             employeePayrollData.employeeNotes = getInputValue('#notes');
             let date = getInputValue('#day') + ' ' +
                 getInputValue('#month') + ' ' + getInputValue('#year');
-            employeePayrollData.startDate = Date.parse(date);
+            employeePayrollData.startDate =date;
             alert(employeePayrollData.toString());
             return employeePayrollData;
         } catch (e) {
@@ -271,7 +275,7 @@
     const unsetGroupInput = (value) => {
         let items = document.querySelectorAll(value);
         allItems.forEach(item => {
-            item.checked = false
+            item.checked = false;
         })
     }
     const unsetvalue = (id, value) => {
