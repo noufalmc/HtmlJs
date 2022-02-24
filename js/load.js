@@ -56,9 +56,8 @@ window.addEventListener('DOMContentLoaded',(event)=>
             let error=document.querySelector(".error-date");
             try
             {
-                alert(new Date(Date.parse(startDate)));
-                new EmployeePayrollData().startDate=new Date(Date.parse(startDate));
-                error.textContent='';
+                (new EmployeePayrollData()).startDate=startDate;
+                
                 
             }catch(e)
             {
