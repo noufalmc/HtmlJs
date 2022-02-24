@@ -92,7 +92,7 @@
                     <salary id="salary-result"></salary>
                 </div>
             </div>
-            <div class="form-content">
+            <div class="form-content" id="date1">
                 <label for="salary">
                     Start Date
                 </label>
@@ -149,7 +149,10 @@
                         <option value="2019">2019</option>
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
                     </select>
+                    <errordate class="error-date" style="color: red;"></errordate>
                 </label>
             </div>
             <div class="form-content">
@@ -198,54 +201,8 @@
         })
     })
 
-    const save = () => {
-        try {
-            let EmployeePayrollData = createEmployeePayroll();
-            createAndUpdateJson(EmployeePayrollData);
-        } catch (e) {
-             alert(e);
-            return;
-        }
-    }
-
-    function createAndUpdateJson(data) {
-
-        let employeePayroll = JSON.parse(localStorage.getItem("EmployeePayroll"));
-        if (employeePayroll != undefined) {
-            employeePayroll.push(data);
-        }
-        else {
-            employeePayroll = [data]
-        }
-
-        localStorage.setItem("EmployeePayroll", JSON.stringify(employeePayroll));
-        alert(localStorage.getItem("EmployeePayroll"));
-    }
-
-    const createEmployeePayroll = () => {
-
-        let employeePayrollData = new EmployeePayrollData();
-        try {
-            
-            employeePayrollData.id=2;
-            employeePayrollData.name = getInputValue('#name');
-            employeePayrollData.profilePic = getSelectedvalues('[name=profile]');
-            employeePayrollData.gender = getSelectedvalues('[name=gender]');
-            employeePayrollData.department = getSelectedvalues('[id=department]');
-            employeePayrollData.salary = getInputValue('#salary');
-            employeePayrollData.employeeNotes = getInputValue('#notes');
-            let date = getInputValue('#day') + ' ' +
-                getInputValue('#month') + ' ' + getInputValue('#year');
-            employeePayrollData.startDate =date;
-            alert(employeePayrollData.toString());
-            return employeePayrollData;
-        } catch (e) {
-            alert(e);
-            throw e;
-        }
-
-    }
-
+    
+    
     const getInputValue = (id) => {
         let value = document.querySelector(id).value;
         return value;
@@ -261,29 +218,5 @@
         })
         return selectedValues;
     }
-    const resetForm = () => {
-        unsetvalue('#name', '');
-        unsetGroupInput('[name=profile]');
-        unsetGroupInput('[name=gender]');
-        unsetGroupInput('[id=department]');
-        unsetvalue('#salary', '');
-        unsetvalue('#notes', '');
-        unsetValueIndex('#day',0);
-        unsetValueIndex('#month',0);
-        unsetValueIndex('#year', 0);
-    }
-    const unsetValueIndex=(id,index)=>
-    {
-        const element=document.querySelector(id);
-        element.selectedIndex=index;
-    }
-    const unsetGroupInput = (value) => {
-        let items = document.querySelectorAll(value);
-        allItems.forEach(item => {
-            item.checked = false;
-        })
-    }
-    const unsetvalue = (id, value) => {
-        document.querySelector(id).value = value;
-    }
+    
 </script>

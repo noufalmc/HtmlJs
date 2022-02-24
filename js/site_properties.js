@@ -1,4 +1,7 @@
-let siteProperties={home_page:'../pages/index.html',
+
+
+let siteProperties={
+home_page:'../index.html',
 add_employee:'../add_employee.html'
 
 }
