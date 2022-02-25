@@ -52,16 +52,15 @@ window.addEventListener('DOMContentLoaded',(event)=>
 {
    let editDate=document.querySelector("#date1");
         editDate.addEventListener('input',function(){
-            let startDate=getInputValue("#day")+' '+getInputValue("#month")+' '+getInputValue("#year");
+            let startDate=getInputValue('#day')+" "+getInputValue('#month')+" "+getInputValue("#year");
             let error=document.querySelector(".error-date");
             try
             {
-                (new EmployeePayrollData()).startDate=startDate;
-                
-                
+                (new EmployeePayrollData()).startDate=startDate;   
+                error.textContent='';  
             }catch(e)
             {
-                alert(e);
+                
                 error.textContent=e;
             }
 
@@ -264,3 +263,10 @@ const unsetGroupInput = (value) => {
 const unsetvalue = (id, value) => {
     document.querySelector(id).value = value;
 }
+
+
+let siteProperties={
+    home_page:'../index.html',
+    add_employee:'../add_employee.html'
+    
+    }

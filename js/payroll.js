@@ -50,6 +50,11 @@ class EmployeePayrollData {
         return this._gender;
     }
     set startDate(startDate) {
+        let now=new Date();
+        startDate=new Date(startDate);
+        if(now<startDate) throw "Future Date";
+        let d=Math.abs(now.getTime()-startDate.getTime());
+        if((d/1000*60*60*24)>30) throw "Start Date Is Beyond 30 Days"
         this._startDate = startDate;
     }
     get startDate() {
